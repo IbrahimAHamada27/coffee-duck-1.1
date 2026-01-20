@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Coffee Duck Menu</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600;700&family=Tajawal:wght@400;500;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* =========================================
+           1. BASIC SETUP (إعدادات أساسية)
+           ========================================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html {
+            scroll-behavior: smooth; /* يجعل حركة التمرير ناعمة */
+        }
+
+        body {
+            background-color: #1a1a1a;
+            color: #ffffff;
+            font-family: 'Poppins', 'Tajawal', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* تخصيص شكل شريط التمرير (Scrollbar) ليكون أنيقاً */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1a1a1a; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #333; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ffd700; 
+        }
+
+        /* =========================================
+           2. UI ELEMENTS (عناصر الواجهة)
+           ========================================= */
+        .lang-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 9999;
+            background: rgba(0, 0, 0, 0.6);
+            color: #ffd700;
+            border: 2px solid #ffd700;
+            padding: 8px 24px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .lang-btn:hover {
+            background: #ffd700;
+            color: #000;
+            transform: scale(1.05);
+        }
+
+   /* =========================================
+
+   3. HERO SECTION (واجهة البداية) - المعدلة
+
+   ========================================= */
+
+.hero {
+
+    height: 100vh;
+
+    min-height: 400px;
+
+    position: relative;
+
+    background-image: url('duck.jpeg');
+
+    background-size: cover;
+
+    background-position: center;
+
+    display: flex;
+
+    align-items: center; /* الإبقاء على التوسيط الرأسي كأساس */
+
+    justify-content: center;
+
+    /* إضافة طبقة تعتيم خفيفة فوق الصورة لضمان وضوح النص */
+
+    box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.3);
+
+}
+
+
+
+.hero-title {
+
+    position: relative;
+
+    z-index: 2;
+
+    /* الخط المميز الجديد (للإنجليزية) */
+
+    font-family: 'Pacifico', cursive;
+
+    /* تكبير الحجم لأنه بدون إطار الآن */
+
+    font-size: 5rem;
+
+    color: #fff;
+
+    /* تعديل الظل ليكون أنعم */
+
+   
+
+   
+
+    /* --- هذا السطر هو المسؤول عن رفع الجملة للأعلى --- */
+
+    /* القيمة السالبة تحرك العنصر لأعلى من مكانه الأصلي */
+
+    transform: translateY(-160px);
+
+
+
+ 
+
+}
+
+
+
+/* تعديل خاص عند التحويل للعربية */
+
+[dir="rtl"] .hero-title {
+
+    /* العودة لخط عربي مناسب لأن خط Pacifico لا يدعم العربية */
+
+    font-family: 'Tajawal', sans-serif;
+
+    font-weight: 800; /* جعله سميك جداً ومميز */
+
+    font-size: 4rem; /* حجم مناسب للعربي */
+
+}
+        /* =========================================
+           4. MENU CONTAINER (جسم المنيو)
+           ========================================= */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            padding-bottom: 100px; /* مسافة إضافية في الأسفل */
+        }
+
+        .menu-card {
+            background: #252525;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 40px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+            border: 1px solid rgba(255,255,255,0.05);
+            
+            /* إعدادات الأنيميشن للكروت (تكون مخفية في البداية) */
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+
+        /* كلاس يضاف بالجافا سكريبت عند ظهور العنصر */
+        .menu-card.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .card-image {
+            height: 250px;
+            width: 100%;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            transition: transform 0.5s ease;
+        }
+
+        /* تأثير زووم خفيف عند الوقوف على الصورة */
+        .menu-card:hover .card-image {
+            transform: scale(1.05);
+        }
+
+        /* ربط الصور */
+        .bg-espresso { background-image: url('espresso.jpeg'); }
+        .bg-hot { background-image: url('hot1.jpeg'); }
+        .bg-iced { background-image: url('iced.jpeg'); }
+        .bg-frappe { background-image: url('frappe.jpeg'); }
+        .bg-smoothie { background-image: url('smoothies.jpeg'); }
+        .bg-juice { background-image: url('juice.jpeg'); }
+        .bg-mojito { background-image: url('soda.jpeg'); }
+        .bg-boba { background-image: url('boba.jpeg'); }
+        .bg-dessert { background-image: url('dessert.jpeg'); }
+
+        .card-content {
+            padding: 25px;
+            position: relative;
+            z-index: 2;
+            background: #252525; /* لتغطية الزووم الخاص بالصورة */
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #ffd700;
+            border-bottom: 2px dashed rgba(255,255,255,0.2);
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .item-list {
+            list-style: none;
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-size: 1.15rem;
+            transition: 0.3s;
+        }
+
+        .menu-item:last-child {
+            border-bottom: none;
+        }
+
+        .menu-item:hover {
+            padding-left: 10px; /* حركة خفيفة عند اللمس */
+            background: rgba(255,255,255,0.02);
+        }
+        
+        [dir="rtl"] .menu-item:hover {
+            padding-left: 0;
+            padding-right: 10px;
+        }
+
+        .item-name {
+            font-weight: 500;
+            color: #f0f0f0;
+        }
+
+        .item-price {
+            font-weight: 700;
+            color: #ffd700;
+            background: rgba(255, 215, 0, 0.1);
+            padding: 5px 12px;
+            border-radius: 8px;
+            white-space: nowrap;
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.1);
+        }
+
+        /* =========================================
+           5. FOOTER (الذيل)
+           ========================================= */
+        footer {
+            text-align: center;
+            padding: 60px 20px;
+            background: #111;
+            margin-top: 40px;
+            color: #888;
+            border-top: 1px solid #333;
+        }
+        
+        footer h3 {
+            color: #fff;
+            margin-bottom: 8px;
+            margin-top: 25px;
+            font-size: 1.4rem;
+        }
+
+        /* =========================================
+           6. RESPONSIVE (تعديلات الموبايل)
+           ========================================= */
+        @media screen and (max-width: 768px) {
+            .hero-title {
+                font-size: 3rem;
+                transform: translateY(-80px); /* تعديل الارتفاع للموبايل */
+            }
+            [dir="rtl"] .hero-title {
+                font-size: 3rem;
+            }
+
+            .container { padding: 15px; }
+            .card-image { height: 200px; }
+            .section-title { font-size: 1.6rem; }
+            .menu-item { font-size: 1rem; padding: 12px 0; }
+        }
+    </style>
+</head>
+<body id="body-tag">
+
+    <button class="lang-btn" id="lang-toggle" onclick="toggleLanguage()">العربية</button>
+
+    <header class="hero">
+        <h1 class="hero-title" id="main-title">Coffee Duck</h1>
+    </header>
+
+    <div class="container">
+
+        <div class="menu-card reveal">
+            <div class="card-image bg-espresso"></div>
+            <div class="card-content">
+                <h2 class="section-title" data-en="Espresso Bar" data-ar="ركن الإسبريسو">Espresso Bar</h2>
+                <div class="item-list">
+                    <div class="menu-item"><span class="item-name" data-en="Spanish Latte" data-ar="سبانش لاتيه">Spanish Latte</span><span class="item-price">85</span></div>
+                    <div class="menu-item"><span class="item-name" data-en="Latte" data-ar="لاتيه">Latte</span><span class="item-price">70</span></div>
+                    <div class="menu-item"><span class="item-name" data-en="Cappuccino" data-ar="كابتشينو">Cappuccino</span><span class="item-price">70</span></div>
+                    <div class="menu-item"><span class="item-name" data-en="Mocha" data-ar="موكا">Mocha</span><span class="item-price">75</span></div>
+                    <div class="menu-item"><span class="item-name" data-en="Americano" data-ar="أمريكانو">Americano</span><span class="item-price">45</span></div>
+                    <div class="menu-item"><span class="item-name" data-en="Espresso (S/D)" data-ar="إسبريسو (سنجل/دبل)">Espresso (S/D)</span><span class="item-price">35 / 55</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-card reveal">
+            <div class="card-image bg-hot"></div>
+            <div class="card-content">
+                <h2 class="section-title" data-en="Hot Drinks" data-ar="مشروبات ساخنة">Hot Drinks</h2>
+                <div class="item-list">
+                    <div class="menu-item"><span class="item-name" data-en="English Tea" data-ar="شاي إنجليزي">English Tea</span><span class="item-price">30 / 40</span></div>
+                    <div class="menu-item"><span class="item-name" data-en="Green Tea" data-ar="شاي أخضر">Green Tea</span><span class="item-price">30 / 40</span></div>
+                    <div class="menu-item"><span class="item-name" data-en="Karak Tea" data-ar="شاي كرك">Karak Tea</span><span class="item-price">65</span></div>
+                    <div class="menu-item"><span class="item-name" data-en="Hot Chocolate" data-ar="هوت شوكليت">Hot Chocolate</span><span class="item-price">80</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-card reveal">
+            <div class="card-image bg-iced"></div>
+            <div class="card-content">
+                <h2 class="section-title" data-en="Iced Coffee" data-ar="قهوة مثلجة">Iced Coffee</h2>
+                <div class="item-list">
+                    <div class="menu-item"><span class="item-name" data-en="Iced Latte" data-ar="أيس لاتيه">Iced Latte</span><span class="item-price">80</span></div>
+                    <div class="menu-item"><span class="item-name" data-en="Iced Mocha" data-ar="أيس موكا">Iced Mocha</span><span class="item-price">80</span></div>
+                    <div class="menu-item"><span class="item-name" data-en="Iced Spanish" data-ar="أيس سبانش">Iced Spanish</span><span class="item-price">85</span></div>
+                    <div class="menu-item"><span class="item-name" data-en="Iced Americano" data-ar="أيس أمريكانو">Iced Americano</span><span class="item-price">60</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-card reveal">
+            <div class="card-image bg-frappe"></div>
+            <div class="card-content">
+                <h2 class="section-title" data-en="Frappe" data-ar="فرابيه">Frappe</h2>
+                <div class="item-list">
+                    <div class="menu-item"><span class="item-name" data-en="Caramel Frappe" data-ar="فرابيه كراميل">Caramel Frappe</span><span class="item-price">80</span></div>
+                    <div class="menu-item"><span class="item-name" data-en="Vanilla Frappe" data-ar="فرابيه فانيليا">Vanilla Frappe</span><span class="item-price">80</span></div>
+                    <div class="menu-item"><span class="item-name" data-en="Mocha Frappe" data-ar="فرابيه موكا">Mocha Frappe</span><span class="item-price">80</span></div>
+                    <div class="menu-item"><span class="item-name" data-en="Oreo Frappe" data-ar="فرابيه أوريو">Oreo Frappe</span><span class="item-price">80</span></div>
+                    <div class="menu-item"><span class="item-name" data-en="Lotus Frappe" data-ar="فرابيه لوتس">Lotus Frappe</span><span class="item-price">95</span></div>
+                    <div class="menu-item"><span class="item-name" data-en="Peanut Butter" data-ar="زبدة فول سوداني">Peanut Butter</span><span class="item-price">100</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-card reveal">
+            <div class="card-image bg-smoothie"></div>
+            <div class="card-content">
+                <h2 class="section-title" data-en="Smoothies" data-ar="سموذي">Smoothies</h2>
+                <div class="item-list">
+                    <div class="menu-item"><span class="item-name" data-en="Lemon Mint" data-ar="ليمون نعناع">Lemon Mint</span><span class="item-price">65</span></div>
+                    <div class="menu-item"><span class="item-name" data-en="Strawberry" data-ar="فراولة">Strawberry</span><span class="item-price">70</span></div>
+                    <div class="menu-item"><span class="item-name" data-en="Mango" data-ar="مانجو">Mango</span><span class="item-price">75</span></div>
+                    <div class="menu-item"><span class="item-name" data-en="Watermelon" data-ar="بطيخ">Watermelon</span><span class="item-price">70</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-card reveal">
+            <div class="card-image bg-juice"></div>
+            <div class="card-content">
+                <h2 class="section-title" data-en="Fresh Juice" data-ar="عصائر فريش">Fresh Juice</h2>
+                <div class="item-list">
+                    <div class="menu-item"><span class="item-name" data-en="Orange" data-ar="برتقال">Orange</span><span class="item-price">60</span></div>
+                    <div class="menu-item"><span class="item-name" data-en="Lemon" data-ar="ليمون">Lemon</span><span class="item-price">50</span></div>
+                    <div class="menu-item"><span class="item-name" data-en="Guava" data-ar="جوافة">Guava</span><span class="item-price">55</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-card reveal">
+            <div class="card-image bg-mojito"></div>
+            <div class="card-content">
+                <h2 class="section-title" data-en="Mojito / Soda" data-ar="موهيتو / صودا">Mojito / Soda</h2>
+                <div class="item-list">
+                    <div class="menu-item"><span class="item-name" data-en="Classic Mojito" data-ar="موهيتو كلاسيك">Classic Mojito</span><span class="item-price">65</span></div>
+                    <div class="menu-item"><span class="item-name" data-en="Blueberry" data-ar="توت أزرق">Blueberry</span><span class="item-price">70</span></div>
+                    <div class="menu-item"><span class="item-name" data-en="Strawberry Soda" data-ar="صودا فراولة">Strawberry Soda</span><span class="item-price">70</span></div>
+                    <div class="menu-item"><span class="item-name" data-en="Passion Fruit" data-ar="باشن فروت">Passion Fruit</span><span class="item-price">75</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-card reveal">
+            <div class="card-image bg-boba"></div>
+            <div class="card-content">
+                <h2 class="section-title" data-en="Bubble Tea (Boba)" data-ar="بابل تي">Bubble Tea (Boba)</h2>
+                <div class="item-list">
+                    <div class="menu-item"><span class="item-name" data-en="Classic Milk Tea" data-ar="شاي حليب كلاسيك">Classic Milk Tea</span><span class="item-price">90</span></div>
+                    <div class="menu-item"><span class="item-name" data-en="Taro Boba" data-ar="تارو بوبا">Taro Boba</span><span class="item-price">95</span></div>
+                    <div class="menu-item"><span class="item-name" data-en="Matcha Boba" data-ar="ماتشا بوبا">Matcha Boba</span><span class="item-price">100</span></div>
+                    <div class="menu-item"><span class="item-name" data-en="Brown Sugar" data-ar="براون شوجر">Brown Sugar</span><span class="item-price">100</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-card reveal">
+            <div class="card-image bg-dessert"></div>
+            <div class="card-content">
+                <h2 class="section-title" data-en="Desserts" data-ar="حلويات">Desserts</h2>
+                <div class="item-list">
+                    <div class="menu-item"><span class="item-name" data-en="Cookies" data-ar="كوكيز">Cookies</span><span class="item-price">45</span></div>
+                    <div class="menu-item"><span class="item-name" data-en="Brownies" data-ar="براونيز">Brownies</span><span class="item-price">55</span></div>
+                    <div class="menu-item"><span class="item-name" data-en="Cheese Cake" data-ar="تشيز كيك">Cheese Cake</span><span class="item-price">80</span></div>
+                    <div class="menu-item"><span class="item-name" data-en="Molten Cake" data-ar="مولتن كيك">Molten Cake</span><span class="item-price">85</span></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <div id="footer-loc">
+            <h3 data-en="📍 Location" data-ar="📍 العنوان">📍 Location</h3>
+            <p data-en="Duck Street – Cairo" data-ar="شارع البط - القاهرة">Duck Street – Cairo</p>
+        </div>
+        <br>
+        <div id="footer-time">
+            <h3 data-en="⏰ Opening Hours" data-ar="⏰ مواعيد العمل">⏰ Opening Hours</h3>
+            <p data-en="Daily 10 AM – 2 AM" data-ar="يومياً 10 صباحاً - 2 صباحاً">Daily 10 AM – 2 AM</p>
+        </div>
+        <br>
+        <p style="font-size: 0.8rem; opacity: 0.5;">© 2025 Coffee Duck</p>
+    </footer>
+
+    <script>
+        // 1. المتغيرات العامة
+        let isArabic = false;
+
+        // ==========================================
+        // وظيفة 1: تغيير اللغة
+        // ==========================================
+        function toggleLanguage() {
+            isArabic = !isArabic;
+            const body = document.body;
+            body.dir = isArabic ? "rtl" : "ltr";
+            
+            const btn = document.getElementById('lang-toggle');
+            btn.textContent = isArabic ? "English" : "العربية";
+
+            const heroTitle = document.getElementById('main-title');
+            heroTitle.textContent = isArabic ? "قهوة البط" : "Coffee Duck";
+
+            const elements = document.querySelectorAll('[data-en]');
+            elements.forEach(el => {
+                if (isArabic) {
+                    if(el.getAttribute('data-ar')) el.textContent = el.getAttribute('data-ar');
+                } else {
+                    el.textContent = el.getAttribute('data-en');
+                }
+            });
+        }
+
+        // ==========================================
+        // وظيفة 2: تأثير ظهور العناصر أثناء السكرول
+        // ==========================================
+        // نستخدم IntersectionObserver لمراقبة العناصر
+        const observerOptions = {
+            threshold: 0.15 // العنصر يظهر لما 15% منه يبان في الشاشة
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show'); // إضافة كلاس الظهور
+                }
+            });
+        }, observerOptions);
+
+        // تفعيل المراقب على كل كروت المنيو
+        document.querySelectorAll('.menu-card').forEach(card => {
+            observer.observe(card);
+        });
+
+        // ==========================================
+        // وظيفة 3: السكرول التلقائي الذكي (Dynamic Auto Scroll)
+        // ==========================================
+        let autoScrollActive = true;
+        let scrollDirection = 1; // 1 للأسفل، -1 للأعلى
+        let scrollSpeed = 1; // سرعة بطيئة جداً (بكسل لكل إطار)
+        let idleTimer;
+
+        // دالة السكرول المستمر
+        function dynamicScroll() {
+            if (!autoScrollActive) {
+                requestAnimationFrame(dynamicScroll);
+                return;
+            }
+
+            // تحريك الصفحة
+            window.scrollBy(0, scrollDirection * scrollSpeed);
+
+            // التحقق من الوصول للقاع
+            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 2) {
+                scrollDirection = -1; // اعكس الاتجاه للأعلى
+                autoScrollActive = false; // توقف لحظة في الأسفل
+                setTimeout(() => { autoScrollActive = true; }, 2000);
+            }
+
+            // التحقق من الوصول للأعلى
+            if (window.scrollY <= 0) {
+                scrollDirection = 1; // اعكس الاتجاه للأسفل
+                autoScrollActive = false; // توقف لحظة في الأعلى
+                setTimeout(() => { autoScrollActive = true; }, 2000);
+            }
+
+            requestAnimationFrame(dynamicScroll);
+        }
+
+        // إيقاف السكرول عند تفاعل المستخدم (لمس أو ماوس)
+        function stopAutoScroll() {
+            autoScrollActive = false;
+            clearTimeout(idleTimer);
+            // إعادة التفعيل بعد 4 ثواني من عدم النشاط
+            idleTimer = setTimeout(() => {
+                autoScrollActive = true;
+            }, 4000);
+        }
+
+        // إضافة مستمعي الأحداث للتفاعل
+        window.addEventListener('touchstart', stopAutoScroll);
+        window.addEventListener('wheel', stopAutoScroll);
+        window.addEventListener('mousemove', stopAutoScroll);
+        window.addEventListener('click', stopAutoScroll);
+
+        // بدء السكرول التلقائي بعد تحميل الصفحة بثانية
+        setTimeout(() => {
+            dynamicScroll();
+        }, 1000);
+
+    </script>
+
+</body>
+</html>
