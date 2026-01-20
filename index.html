@@ -200,16 +200,18 @@
         }
 
         /* ربط الصور */
-        .bg-espresso { background-image: url('espresso.jpeg'); }
-        .bg-hot { background-image: url('hot1.jpeg'); }
-        .bg-iced { background-image: url('iced.jpeg'); }
-        .bg-frappe { background-image: url('frappe.jpeg'); }
-        .bg-smoothie { background-image: url('smoothies.jpeg'); }
-        .bg-juice { background-image: url('juice.jpeg'); }
-        .bg-mojito { background-image: url('soda.jpeg'); }
-        .bg-boba { background-image: url('boba.jpeg'); }
-        .bg-dessert { background-image: url('dessert.jpeg'); }
-
+            .bg-espresso { background-image: url('espresso.jpeg'); }
+            .bg-hot { background-image: url('hot1.jpeg'); }   /* الجزء الأول من المشروبات الساخنة */
+            .bg-hot2 { background-image: url('hot.jpeg'); }   /* الجزء الثاني من المشروبات الساخنة */
+            .bg-coffee { background-image: url('coffee.jpeg'); } /* قسم القهوة الإضافي */
+            .bg-iced { background-image: url('iced.jpeg'); }
+            .bg-frappe { background-image: url('frappe.jpeg'); }
+            .bg-yogurt { background-image: url('yogurt.jpeg'); } /* قسم الزبادي */
+            .bg-smoothie { background-image: url('smoothies.jpeg'); }
+            .bg-juice { background-image: url('juice.jpeg'); }
+            .bg-mojito { background-image: url('soda.jpeg'); }
+            .bg-boba { background-image: url('boba.jpeg'); }
+            .bg-dessert { background-image: url('dessert.jpeg'); }
         .card-content {
             padding: 25px;
             position: relative;
@@ -318,128 +320,208 @@
 
     <div class="container">
 
-        <div class="menu-card reveal">
-            <div class="card-image bg-espresso"></div>
-            <div class="card-content">
-                <h2 class="section-title" data-en="Espresso Bar" data-ar="ركن الإسبريسو">Espresso Bar</h2>
-                <div class="item-list">
-                    <div class="menu-item"><span class="item-name" data-en="Spanish Latte" data-ar="سبانش لاتيه">Spanish Latte</span><span class="item-price">85</span></div>
-                    <div class="menu-item"><span class="item-name" data-en="Latte" data-ar="لاتيه">Latte</span><span class="item-price">70</span></div>
-                    <div class="menu-item"><span class="item-name" data-en="Cappuccino" data-ar="كابتشينو">Cappuccino</span><span class="item-price">70</span></div>
-                    <div class="menu-item"><span class="item-name" data-en="Mocha" data-ar="موكا">Mocha</span><span class="item-price">75</span></div>
-                    <div class="menu-item"><span class="item-name" data-en="Americano" data-ar="أمريكانو">Americano</span><span class="item-price">45</span></div>
-                    <div class="menu-item"><span class="item-name" data-en="Espresso (S/D)" data-ar="إسبريسو (سنجل/دبل)">Espresso (S/D)</span><span class="item-price">35 / 55</span></div>
-                </div>
+    <div class="menu-card reveal">
+        <div class="card-image bg-espresso"></div>
+        <div class="card-content">
+            <h2 class="section-title" data-en="Duck Espresso Corner" data-ar="ركن الإسبريسو">Duck Espresso Corner</h2>
+            <div class="item-list">
+                <div class="menu-item"><span class="item-name" data-en="Spanish Latte" data-ar="سبانش لاتيه">Spanish Latte</span><span class="item-price">85</span></div>
+                <div class="menu-item"><span class="item-name" data-en="Latte" data-ar="لاتيه">Latte</span><span class="item-price">70</span></div>
+                <div class="menu-item"><span class="item-name" data-en="Cappuccino" data-ar="كابتشينو">Cappuccino</span><span class="item-price">70</span></div>
+                <div class="menu-item"><span class="item-name" data-en="Flat White" data-ar="فلات وايت">Flat White</span><span class="item-price">60</span></div>
+                <div class="menu-item"><span class="item-name" data-en="Mocha" data-ar="موكا">Mocha</span><span class="item-price">75</span></div>
+                <div class="menu-item"><span class="item-name" data-en="Caramel Mocha" data-ar="كراميل موكا">Caramel Mocha</span><span class="item-price">80</span></div>
+                <div class="menu-item"><span class="item-name" data-en="Caramel Macchiato" data-ar="كراميل ميكياتو">Caramel Macchiato</span><span class="item-price">80</span></div>
+                <div class="menu-item"><span class="item-name" data-en="Hot Chocolate" data-ar="هوت شوكليت">Hot Chocolate</span><span class="item-price">80</span></div>
+                <div class="menu-item"><span class="item-name" data-en="Dulce De Leche Latte" data-ar="دولسي دي ليتشي لاتيه">Dulce De Leche Latte</span><span class="item-price">80</span></div>
+                <div class="menu-item"><span class="item-name" data-en="Espresso (Single/Double)" data-ar="إسبريسو (سنجل/دبل)">Espresso (S/D)</span><span class="item-price">35 / 55</span></div>
+                <div class="menu-item"><span class="item-name" data-en="Espresso Macchiato (S/D)" data-ar="إسبريسو ميكياتو (سنجل/دبل)">Espresso Macchiato</span><span class="item-price">45 / 55</span></div>
+                <div class="menu-item"><span class="item-name" data-en="Cortado" data-ar="كورتادو">Cortado</span><span class="item-price">60</span></div>
             </div>
         </div>
-
-        <div class="menu-card reveal">
-            <div class="card-image bg-hot"></div>
-            <div class="card-content">
-                <h2 class="section-title" data-en="Hot Drinks" data-ar="مشروبات ساخنة">Hot Drinks</h2>
-                <div class="item-list">
-                    <div class="menu-item"><span class="item-name" data-en="English Tea" data-ar="شاي إنجليزي">English Tea</span><span class="item-price">30 / 40</span></div>
-                    <div class="menu-item"><span class="item-name" data-en="Green Tea" data-ar="شاي أخضر">Green Tea</span><span class="item-price">30 / 40</span></div>
-                    <div class="menu-item"><span class="item-name" data-en="Karak Tea" data-ar="شاي كرك">Karak Tea</span><span class="item-price">65</span></div>
-                    <div class="menu-item"><span class="item-name" data-en="Hot Chocolate" data-ar="هوت شوكليت">Hot Chocolate</span><span class="item-price">80</span></div>
-                </div>
-            </div>
-        </div>
-
-        <div class="menu-card reveal">
-            <div class="card-image bg-iced"></div>
-            <div class="card-content">
-                <h2 class="section-title" data-en="Iced Coffee" data-ar="قهوة مثلجة">Iced Coffee</h2>
-                <div class="item-list">
-                    <div class="menu-item"><span class="item-name" data-en="Iced Latte" data-ar="أيس لاتيه">Iced Latte</span><span class="item-price">80</span></div>
-                    <div class="menu-item"><span class="item-name" data-en="Iced Mocha" data-ar="أيس موكا">Iced Mocha</span><span class="item-price">80</span></div>
-                    <div class="menu-item"><span class="item-name" data-en="Iced Spanish" data-ar="أيس سبانش">Iced Spanish</span><span class="item-price">85</span></div>
-                    <div class="menu-item"><span class="item-name" data-en="Iced Americano" data-ar="أيس أمريكانو">Iced Americano</span><span class="item-price">60</span></div>
-                </div>
-            </div>
-        </div>
-
-        <div class="menu-card reveal">
-            <div class="card-image bg-frappe"></div>
-            <div class="card-content">
-                <h2 class="section-title" data-en="Frappe" data-ar="فرابيه">Frappe</h2>
-                <div class="item-list">
-                    <div class="menu-item"><span class="item-name" data-en="Caramel Frappe" data-ar="فرابيه كراميل">Caramel Frappe</span><span class="item-price">80</span></div>
-                    <div class="menu-item"><span class="item-name" data-en="Vanilla Frappe" data-ar="فرابيه فانيليا">Vanilla Frappe</span><span class="item-price">80</span></div>
-                    <div class="menu-item"><span class="item-name" data-en="Mocha Frappe" data-ar="فرابيه موكا">Mocha Frappe</span><span class="item-price">80</span></div>
-                    <div class="menu-item"><span class="item-name" data-en="Oreo Frappe" data-ar="فرابيه أوريو">Oreo Frappe</span><span class="item-price">80</span></div>
-                    <div class="menu-item"><span class="item-name" data-en="Lotus Frappe" data-ar="فرابيه لوتس">Lotus Frappe</span><span class="item-price">95</span></div>
-                    <div class="menu-item"><span class="item-name" data-en="Peanut Butter" data-ar="زبدة فول سوداني">Peanut Butter</span><span class="item-price">100</span></div>
-                </div>
-            </div>
-        </div>
-
-        <div class="menu-card reveal">
-            <div class="card-image bg-smoothie"></div>
-            <div class="card-content">
-                <h2 class="section-title" data-en="Smoothies" data-ar="سموذي">Smoothies</h2>
-                <div class="item-list">
-                    <div class="menu-item"><span class="item-name" data-en="Lemon Mint" data-ar="ليمون نعناع">Lemon Mint</span><span class="item-price">65</span></div>
-                    <div class="menu-item"><span class="item-name" data-en="Strawberry" data-ar="فراولة">Strawberry</span><span class="item-price">70</span></div>
-                    <div class="menu-item"><span class="item-name" data-en="Mango" data-ar="مانجو">Mango</span><span class="item-price">75</span></div>
-                    <div class="menu-item"><span class="item-name" data-en="Watermelon" data-ar="بطيخ">Watermelon</span><span class="item-price">70</span></div>
-                </div>
-            </div>
-        </div>
-
-        <div class="menu-card reveal">
-            <div class="card-image bg-juice"></div>
-            <div class="card-content">
-                <h2 class="section-title" data-en="Fresh Juice" data-ar="عصائر فريش">Fresh Juice</h2>
-                <div class="item-list">
-                    <div class="menu-item"><span class="item-name" data-en="Orange" data-ar="برتقال">Orange</span><span class="item-price">60</span></div>
-                    <div class="menu-item"><span class="item-name" data-en="Lemon" data-ar="ليمون">Lemon</span><span class="item-price">50</span></div>
-                    <div class="menu-item"><span class="item-name" data-en="Guava" data-ar="جوافة">Guava</span><span class="item-price">55</span></div>
-                </div>
-            </div>
-        </div>
-
-        <div class="menu-card reveal">
-            <div class="card-image bg-mojito"></div>
-            <div class="card-content">
-                <h2 class="section-title" data-en="Mojito / Soda" data-ar="موهيتو / صودا">Mojito / Soda</h2>
-                <div class="item-list">
-                    <div class="menu-item"><span class="item-name" data-en="Classic Mojito" data-ar="موهيتو كلاسيك">Classic Mojito</span><span class="item-price">65</span></div>
-                    <div class="menu-item"><span class="item-name" data-en="Blueberry" data-ar="توت أزرق">Blueberry</span><span class="item-price">70</span></div>
-                    <div class="menu-item"><span class="item-name" data-en="Strawberry Soda" data-ar="صودا فراولة">Strawberry Soda</span><span class="item-price">70</span></div>
-                    <div class="menu-item"><span class="item-name" data-en="Passion Fruit" data-ar="باشن فروت">Passion Fruit</span><span class="item-price">75</span></div>
-                </div>
-            </div>
-        </div>
-
-        <div class="menu-card reveal">
-            <div class="card-image bg-boba"></div>
-            <div class="card-content">
-                <h2 class="section-title" data-en="Bubble Tea (Boba)" data-ar="بابل تي">Bubble Tea (Boba)</h2>
-                <div class="item-list">
-                    <div class="menu-item"><span class="item-name" data-en="Classic Milk Tea" data-ar="شاي حليب كلاسيك">Classic Milk Tea</span><span class="item-price">90</span></div>
-                    <div class="menu-item"><span class="item-name" data-en="Taro Boba" data-ar="تارو بوبا">Taro Boba</span><span class="item-price">95</span></div>
-                    <div class="menu-item"><span class="item-name" data-en="Matcha Boba" data-ar="ماتشا بوبا">Matcha Boba</span><span class="item-price">100</span></div>
-                    <div class="menu-item"><span class="item-name" data-en="Brown Sugar" data-ar="براون شوجر">Brown Sugar</span><span class="item-price">100</span></div>
-                </div>
-            </div>
-        </div>
-
-        <div class="menu-card reveal">
-            <div class="card-image bg-dessert"></div>
-            <div class="card-content">
-                <h2 class="section-title" data-en="Desserts" data-ar="حلويات">Desserts</h2>
-                <div class="item-list">
-                    <div class="menu-item"><span class="item-name" data-en="Cookies" data-ar="كوكيز">Cookies</span><span class="item-price">45</span></div>
-                    <div class="menu-item"><span class="item-name" data-en="Brownies" data-ar="براونيز">Brownies</span><span class="item-price">55</span></div>
-                    <div class="menu-item"><span class="item-name" data-en="Cheese Cake" data-ar="تشيز كيك">Cheese Cake</span><span class="item-price">80</span></div>
-                    <div class="menu-item"><span class="item-name" data-en="Molten Cake" data-ar="مولتن كيك">Molten Cake</span><span class="item-price">85</span></div>
-                </div>
-            </div>
-        </div>
-
     </div>
 
+    <div class="menu-card reveal">
+        <div class="card-image bg-hot"></div>
+        <div class="card-content">
+            <h2 class="section-title" data-en="Duck Hot Corner " data-ar="مشروبات ساخنة">Duck Hot Corner</h2>
+            <div class="item-list">
+                <div class="menu-item"><span class="item-name" data-en="English Tea" data-ar="شاي إنجليزي">English Tea</span><span class="item-price">30 / 40</span></div>
+                <div class="menu-item"><span class="item-name" data-en="Flavored Tea" data-ar="شاي بنكهات">Flavored Tea</span><span class="item-price">40 / 50</span></div>
+                <div class="menu-item"><span class="item-name" data-en="Green Tea" data-ar="شاي أخضر">Green Tea</span><span class="item-price">30 / 40</span></div>
+                <div class="menu-item"><span class="item-name" data-en="Earl Grey Tea" data-ar="شاي إيرل جراي">Earl Grey Tea</span><span class="item-price">30 / 40</span></div>
+                <div class="menu-item"><span class="item-name" data-en="Anise" data-ar="يانسون">Anise</span><span class="item-price">30 / 40</span></div>
+                <div class="menu-item"><span class="item-name" data-en="Roselle" data-ar="كركديه">Roselle</span><span class="item-price">30 / 40</span></div>
+                <div class="menu-item"><span class="item-name" data-en="Mint" data-ar="نعناع">Mint</span><span class="item-price">30 / 40</span></div>
+                <div class="menu-item"><span class="item-name" data-en="Lemon Ginger" data-ar="ليمون بالزنجبيل">Lemon Ginger</span><span class="item-price">30 / 40</span></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="menu-card reveal">
+        <div class="card-image bg-hot2"></div> <div class="card-content">
+            <h2 class="section-title" data-en="Duck Hot Corner " data-ar="مشروبات ساخنة">Duck Hot Corner </h2>
+            <div class="item-list">
+                <div class="menu-item"><span class="item-name" data-en="Tea With Milk" data-ar="شاي بحليب">Tea With Milk</span><span class="item-price">40 / 50</span></div>
+                <div class="menu-item"><span class="item-name" data-en="Karak Tea" data-ar="شاي كرك">Karak Tea</span><span class="item-price">65</span></div>
+                <div class="menu-item"><span class="item-name" data-en="Herbs" data-ar="أعشاب">Herbs</span><span class="item-price">50 / 60</span></div>
+                <div class="menu-item"><span class="item-name" data-en="Cinnamon With Milk" data-ar="قرفة بالحليب">Cinnamon With Milk</span><span class="item-price">40 / 45</span></div>
+                <div class="menu-item"><span class="item-name" data-en="Nescafe Black" data-ar="نسكافيه بلاك">Nescafe Black</span><span class="item-price">30 / 60</span></div>
+                <div class="menu-item"><span class="item-name" data-en="Nescafe With Milk" data-ar="نسكافيه بالحليب">Nescafe With Milk</span><span class="item-price">45 / 60</span></div>
+                <div class="menu-item"><span class="item-name" data-en="Hot Cider" data-ar="هوت سيدر">Hot Cider</span><span class="item-price">60</span></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="menu-card reveal">
+        <div class="card-image bg-coffee"></div>
+        <div class="card-content">
+            <h2 class="section-title" data-en="Duck Coffee Corner" data-ar="ركن القهوة">Duck Coffee Corner</h2>
+            <div class="item-list">
+                <div class="menu-item"><span class="item-name" data-en="Turkish Coffee" data-ar="قهوة تركي">Turkish Coffee</span><span class="item-price">35 / 50</span></div>
+                <div class="menu-item"><span class="item-name" data-en="French Coffee" data-ar="قهوة فرنساوي">French Coffee</span><span class="item-price">40 / 60</span></div>
+                <div class="menu-item"><span class="item-name" data-en="Hazelnut Coffee" data-ar="قهوة بالبندق">Hazelnut Coffee</span><span class="item-price">40 / 60</span></div>
+                <div class="menu-item"><span class="item-name" data-en="Nutella Coffee" data-ar="قهوة نوتيلا">Nutella Coffee</span><span class="item-price">50 / 70</span></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="menu-card reveal">
+        <div class="card-image bg-iced"></div>
+        <div class="card-content">
+            <h2 class="section-title" data-en="Duck Iced Corner" data-ar="ركن المثلجات">Duck Iced Corner</h2>
+            <div class="item-list">
+                <div class="menu-item"><span class="item-name" data-en="Ice Latte" data-ar="أيس لاتيه">Ice Latte</span><span class="item-price">70</span></div>
+                <div class="menu-item"><span class="item-name" data-en="Ice Chocolate" data-ar="أيس شوكليت">Ice Chocolate</span><span class="item-price">70</span></div>
+                <div class="menu-item"><span class="item-name" data-en="Ice Mocha" data-ar="أيس موكا">Ice Mocha</span><span class="item-price">80</span></div>
+                <div class="menu-item"><span class="item-name" data-en="Ice Dulce De Leche" data-ar="أيس دولسي دي ليتشي">Ice Dulce De Leche</span><span class="item-price">80</span></div>
+                <div class="menu-item"><span class="item-name" data-en="Ice Spanish Latte" data-ar="أيس سبانش لاتيه">Ice Spanish Latte</span><span class="item-price">85</span></div>
+                <div class="menu-item"><span class="item-name" data-en="Ice Caramel Macchiato" data-ar="أيس كراميل ميكياتو">Ice Caramel Macchiato</span><span class="item-price">80</span></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="menu-card reveal">
+        <div class="card-image bg-frappe"></div>
+        <div class="card-content">
+            <h2 class="section-title" data-en="Duck Frappe Corner" data-ar="ركن الفرابيه">Duck Frappe Corner</h2>
+            <div class="item-list">
+                <div class="menu-item"><span class="item-name" data-en="Caramel Frappe" data-ar="فرابيه كراميل">Caramel Frappe</span><span class="item-price">80</span></div>
+                <div class="menu-item"><span class="item-name" data-en="Vanilla Frappe" data-ar="فرابيه فانيليا">Vanilla Frappe</span><span class="item-price">80</span></div>
+                <div class="menu-item"><span class="item-name" data-en="Hazelnut Frappe" data-ar="فرابيه بندق">Hazelnut Frappe</span><span class="item-price">80</span></div>
+                <div class="menu-item"><span class="item-name" data-en="Mocha Frappe" data-ar="فرابيه موكا">Mocha Frappe</span><span class="item-price">80</span></div>
+                <div class="menu-item"><span class="item-name" data-en="Dulce De Leche Frappe" data-ar="فرابيه دولسي دي ليتشي">Dulce De Leche Frappe</span><span class="item-price">85</span></div>
+                <div class="menu-item"><span class="item-name" data-en="Strawberry Frappe" data-ar="فرابيه فراولة">Strawberry Frappe</span><span class="item-price">80</span></div>
+                <div class="menu-item"><span class="item-name" data-en="Peach Frappe" data-ar="فرابيه خوخ">Peach Frappe</span><span class="item-price">80</span></div>
+                <div class="menu-item"><span class="item-name" data-en="Oreo Frappe" data-ar="فرابيه أوريو">Oreo Frappe</span><span class="item-price">80</span></div>
+                <div class="menu-item"><span class="item-name" data-en="Peanut Butter Frappe" data-ar="فرابيه زبدة الفول السوداني">Peanut Butter Frappe</span><span class="item-price">100</span></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="menu-card reveal">
+        <div class="card-image bg-yogurt"></div>
+        <div class="card-content">
+            <h2 class="section-title" data-en="Duck Yogurt Corner" data-ar="ركن الزبادي">Duck Yogurt Corner</h2>
+            <div class="item-list">
+                <div class="menu-item"><span class="item-name" data-en="Strawberry Yogurt" data-ar="زبادي فراولة">Strawberry Yogurt</span><span class="item-price">75</span></div>
+                <div class="menu-item"><span class="item-name" data-en="Peach Yogurt" data-ar="زبادي خوخ">Peach Yogurt</span><span class="item-price">75</span></div>
+                <div class="menu-item"><span class="item-name" data-en="Kiwi Yogurt" data-ar="زبادي كيوي">Kiwi Yogurt</span><span class="item-price">75</span></div>
+                <div class="menu-item"><span class="item-name" data-en="Mango Yogurt" data-ar="زبادي مانجو">Mango Yogurt</span><span class="item-price">75</span></div>
+                <div class="menu-item"><span class="item-name" data-en="Blueberry Yogurt" data-ar="زبادي توت أزرق">Blueberry Yogurt</span><span class="item-price">75</span></div>
+                <div class="menu-item"><span class="item-name" data-en="Honey Yogurt" data-ar="زبادي عسل">Honey Yogurt</span><span class="item-price">75</span></div>
+                <div class="menu-item"><span class="item-name" data-en="Passion Fruit Yogurt" data-ar="زبادي باشن فروت">Passion Fruit Yogurt</span><span class="item-price">75</span></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="menu-card reveal">
+        <div class="card-image bg-smoothie"></div>
+        <div class="card-content">
+            <h2 class="section-title" data-en="Duck Smoothies Corner" data-ar="ركن السموذي">Duck Smoothies Corner</h2>
+            <div class="item-list">
+                <div class="menu-item"><span class="item-name" data-en="Blueberry Smoothie" data-ar="سموذي توت أزرق">Blueberry Smoothie</span><span class="item-price">60</span></div>
+                <div class="menu-item"><span class="item-name" data-en="Mango Smoothie" data-ar="سموذي مانجو">Mango Smoothie</span><span class="item-price">60</span></div>
+                <div class="menu-item"><span class="item-name" data-en="Strawberry Smoothie" data-ar="سموذي فراولة">Strawberry Smoothie</span><span class="item-price">60</span></div>
+                <div class="menu-item"><span class="item-name" data-en="Peach Smoothie" data-ar="سموذي خوخ">Peach Smoothie</span><span class="item-price">60</span></div>
+                <div class="menu-item"><span class="item-name" data-en="Pineapple Smoothie" data-ar="سموذي أناناس">Pineapple Smoothie</span><span class="item-price">60</span></div>
+                <div class="menu-item"><span class="item-name" data-en="Kiwi Smoothie" data-ar="سموذي كيوي">Kiwi Smoothie</span><span class="item-price">60</span></div>
+                <div class="menu-item"><span class="item-name" data-en="Passion Fruit Smoothie" data-ar="سموذي باشن فروت">Passion Fruit Smoothie</span><span class="item-price">60</span></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="menu-card reveal">
+        <div class="card-image bg-mojito"></div>
+        <div class="card-content">
+            <h2 class="section-title" data-en="Duck Soda Corner" data-ar="ركن الصودا">Duck Soda Corner</h2>
+            <div class="item-list">
+                <div class="menu-item"><span class="item-name" data-en="Cherry Cola" data-ar="شيري كولا">Cherry Cola</span><span class="item-price">70</span></div>
+                <div class="menu-item"><span class="item-name" data-en="Jelly Cola" data-ar="جيلي كولا">Jelly Cola</span><span class="item-price">70</span></div>
+                <div class="menu-item"><span class="item-name" data-en="Mojito" data-ar="موهيتو">Mojito</span><span class="item-price">70</span></div>
+                <div class="menu-item"><span class="item-name" data-en="Sunshine" data-ar="صن شاين">Sunshine</span><span class="item-price">70</span></div>
+                <div class="menu-item"><span class="item-name" data-en="Soft Drinks" data-ar="مشروبات غازية">Soft Drinks</span><span class="item-price">70</span></div>
+                <div class="menu-item"><span class="item-name" data-en="Mineral Water" data-ar="مياه معدنية">Mineral Water</span><span class="item-price">10</span></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="menu-card reveal">
+        <div class="card-image bg-juice"></div>
+        <div class="card-content">
+            <h2 class="section-title" data-en="Duck Juice Corner" data-ar="عصائر فريش">Duck Juice Corner</h2>
+            <div class="item-list">
+                <div class="menu-item"><span class="item-name" data-en="Mango" data-ar="مانجو">Mango</span><span class="item-price">70</span></div>
+                <div class="menu-item"><span class="item-name" data-en="Strawberry" data-ar="فراولة">Strawberry</span><span class="item-price">60</span></div>
+                <div class="menu-item"><span class="item-name" data-en="Orange" data-ar="برتقال">Orange</span><span class="item-price">60</span></div>
+                <div class="menu-item"><span class="item-name" data-en="Guava" data-ar="جوافة">Guava</span><span class="item-price">60</span></div>
+                <div class="menu-item"><span class="item-name" data-en="Tangerine" data-ar="يوسفي">Tangerine</span><span class="item-price">60</span></div>
+                <div class="menu-item"><span class="item-name" data-en="Banana With Milk" data-ar="موز باللبن">Banana With Milk</span><span class="item-price">60</span></div>
+                <div class="menu-item"><span class="item-name" data-en="Guava With Milk" data-ar="جوافة باللبن">Guava With Milk</span><span class="item-price">60</span></div>
+                <div class="menu-item"><span class="item-name" data-en="Lemon Mint" data-ar="ليمون نعناع">Lemon Mint</span><span class="item-price">60</span></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="menu-card reveal">
+        <div class="card-image bg-boba"></div>
+        <div class="card-content">
+            <h2 class="section-title" data-en="Duck Boba Corner" data-ar="ركن البوبا">Duck Boba Corner</h2>
+            <div class="item-list">
+                <div class="menu-item"><span class="item-name" data-en="Blueberry Boba" data-ar="بوبا توت أزرق">Blueberry Boba</span><span class="item-price">90</span></div>
+                <div class="menu-item"><span class="item-name" data-en="Strawberry Boba" data-ar="بوبا فراولة">Strawberry Boba</span><span class="item-price">90</span></div>
+                <div class="menu-item"><span class="item-name" data-en="Passion Fruit Boba" data-ar="بوبا باشن فروت">Passion Fruit Boba</span><span class="item-price">90</span></div>
+                
+                <div class="menu-item" style="border-top: 1px dashed #555; margin-top: 10px; padding-top: 15px;">
+                    <span class="item-name" data-en="Extra Espresso" data-ar="إضافه إسبريسو">Extra Espresso</span><span class="item-price">20</span>
+                </div>
+                <div class="menu-item"><span class="item-name" data-en="Extra Flavor" data-ar="إضافة نكهة">Extra Flavor</span><span class="item-price">15</span></div>
+                <div class="menu-item"><span class="item-name" data-en="Extra Milk" data-ar="إضافة حليب">Extra Milk</span><span class="item-price">10</span></div>
+                <div class="menu-item"><span class="item-name" data-en="Extra Sauce" data-ar="إضافة صوص">Extra Sauce</span><span class="item-price">15</span></div>
+                <div class="menu-item"><span class="item-name" data-en="Extra Boba" data-ar="إضافة بوبا">Extra Boba</span><span class="item-price">35</span></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="menu-card reveal">
+        <div class="card-image bg-dessert"></div>
+        <div class="card-content">
+            <h2 class="section-title" data-en="Desserts" data-ar="حلويات">Desserts</h2>
+            <div class="item-list">
+                <div class="menu-item"><span class="item-name" data-en="Chocolate Bar Date" data-ar="بار تمر بالشوكولاتة">Chocolate Bar Date</span><span class="item-price">30</span></div>
+                <div class="menu-item"><span class="item-name" data-en="Cookies" data-ar="كوكيز">Cookies</span><span class="item-price">45</span></div>
+                <div class="menu-item"><span class="item-name" data-en="Brownies" data-ar="براونيز">Brownies</span><span class="item-price">55</span></div>
+                <div class="menu-item"><span class="item-name" data-en="Chocolate Cheese Cake" data-ar="تشيز كيك شوكولاتة">Chocolate Cheese Cake</span><span class="item-price">80</span></div>
+                <div class="menu-item"><span class="item-name" data-en="Strawberry Cheese Cake" data-ar="تشيز كيك فراولة">Strawberry Cheese Cake</span><span class="item-price">80</span></div>
+                <div class="menu-item"><span class="item-name" data-en="Lotus Cheese Cake" data-ar="تشيز كيك لوتس">Lotus Cheese Cake</span><span class="item-price">85</span></div>
+                <div class="menu-item"><span class="item-name" data-en="Ding Dong Cake" data-ar="دينج دونج كيك">Ding Dong Cake</span><span class="item-price">60</span></div>
+                <div class="menu-item"><span class="item-name" data-en="Chocolate Muffin" data-ar="مافن شوكولاتة">Chocolate Muffin</span><span class="item-price">45</span></div>
+                <div class="menu-item"><span class="item-name" data-en="Caramel Cheese Cake Brownies" data-ar="براونيز تشيز كيك كراميل">Caramel Cheese Cake Brownies</span><span class="item-price">85</span></div>
+            </div>
+        </div>
+    </div>
+
+</div>
     <footer>
         <div id="footer-loc">
             <h3 data-en="📍 Location" data-ar="📍 العنوان">📍 Location</h3>
