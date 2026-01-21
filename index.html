@@ -71,89 +71,92 @@
             color: #000;
             transform: scale(1.05);
         }
-
-   /* =========================================
-
-   3. HERO SECTION (واجهة البداية) - المعدلة
-
+/* =========================================
+   3. HERO SECTION (واجهة البداية) - المعدلة للصورة الكاملة
    ========================================= */
-
 .hero {
-
-    height: 100vh;
-
-    min-height: 400px;
-
+    /* الارتفاع الافتراضي للكمبيوتر (اللابتوب) */
+    height: 80vh; 
     position: relative;
-
     background-image: url('duck.jpeg');
-
-    background-size: cover;
-
-    background-position: center;
-
+    
+    /* التعديلات عشان الصورة تظهر كاملة */
+    background-size: contain; /* يخلي الصورة تظهر بالكامل حدودها جوه الشاشة */
+    background-repeat: no-repeat; /* يمنع تكرار الصورة */
+    background-position: center; /* يوسطن الصورة بالظبط */
+    background-color: #1a1a1a; /* لون الخلفية للفراغات الجانبية لو وجدت */
+    
     display: flex;
-
-    align-items: center; /* الإبقاء على التوسيط الرأسي كأساس */
-
+    align-items: center;
     justify-content: center;
-
-    /* إضافة طبقة تعتيم خفيفة فوق الصورة لضمان وضوح النص */
-
-    box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.3);
-
 }
 
+/* حركة الخلفية (اختيارية - ممكن تشيلها لو عاوز الصورة ثابتة تماماً) */
+/* ملحوظة: مع background-size: contain الحركة دي ممكن مش تكون ظريفة اوي، يفضل تشيل الانيميشن لو الصورة فيها لوجو وكلام */
+/* animation: bgMove 20s infinite alternate linear; */ 
 
 
+/* تنسيق العنوان (لو لسه هتستخدمه فوق الصورة) */
 .hero-title {
-
     position: relative;
-
     z-index: 2;
-
-    /* الخط المميز الجديد (للإنجليزية) */
-
     font-family: 'Pacifico', cursive;
-
-    /* تكبير الحجم لأنه بدون إطار الآن */
-
-    font-size: 5rem;
-
+    font-size: 5.5rem; 
     color: #fff;
-
-    /* تعديل الظل ليكون أنعم */
-
-   
-
-   
-
-    /* --- هذا السطر هو المسؤول عن رفع الجملة للأعلى --- */
-
-    /* القيمة السالبة تحرك العنصر لأعلى من مكانه الأصلي */
-
-    transform: translateY(-160px);
-
-
-
- 
-
+    text-shadow: 4px 4px 8px rgba(0,0,0,0.7);
+    /* رفعنا الجملة اكتر عشان متغطيش على وش البطة */
+    transform: translateY(-160px); 
+    transition: all 0.5s ease;
+    opacity: 0.9; /* شفافية خفيفة */
 }
 
-
-
-/* تعديل خاص عند التحويل للعربية */
-
+/* تنسيق العنوان للعربي */
 [dir="rtl"] .hero-title {
-
-    /* العودة لخط عربي مناسب لأن خط Pacifico لا يدعم العربية */
-
     font-family: 'Tajawal', sans-serif;
+    font-weight: 800;
+    font-size: 4.5rem;
+}
 
-    font-weight: 800; /* جعله سميك جداً ومميز */
+/* =========================================
+   تعديلات الموبايل (عشان الصورة تظهر كاملة بدون سواد)
+   ========================================= */
+@media screen and (max-width: 768px) {
+    .hero {
+        /* 1. إلغاء الارتفاع الثابت الذي يسبب السواد */
+        height: auto !important;
+        
+        /* 2. تحديد نسبة العرض للطول لتناسب الصورة تماماً (4:3 مناسبة لصورة البطة) */
+        /* هذا السطر سيجعل الصندوق يتقلص ليلائم حجم الصورة بالضبط */
+        aspect-ratio: 4/3; 
+        
+        /* 3. ضمان ظهور الصورة بالكامل */
+        background-size: cover; 
+        background-position: center center;
+        
+        /* تقليل الظل الأسود في الموبايل لتظهر الألوان زاهية */
+        box-shadow: inset 0 0 0 100px rgba(0, 0, 0, 0.2);
+    }
 
-    font-size: 4rem; /* حجم مناسب للعربي */
+    .hero-title {
+        /* تصغير الخط وتضبيط مكانه عشان ميبقاش فوق وش البطة */
+        font-size: 2.2rem; 
+        transform: translateY(-80px); /* رفع العنوان للأعلى */
+        text-shadow: 2px 2px 4px #000;
+    }
+    
+    /* تعديل للعربي */
+    [dir="rtl"] .hero-title {
+        font-size: 2rem;
+    }
 
+    /* تحسينات إضافية للكروت في الموبايل */
+    .menu-card {
+        margin-bottom: 30px;
+    }
+    
+    .card-image {
+        height: 200px;
+    }
 }
         /* =========================================
            4. MENU CONTAINER (جسم المنيو)
